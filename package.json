@@ -1,0 +1,7 @@
+{
+  "name": "facial-recognition-webiste",
+  "version": "0.0.1",
+  "dependencies": {
+    "webpack": "^3.11.0"
+  }
+}
