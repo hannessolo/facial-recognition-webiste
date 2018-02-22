@@ -29,7 +29,6 @@ export default class App extends Component {
         loading: false,
         sidebar: res.sidebar
       });
-      console.log(res.sidebar);
     }).catch((err) => {
       console.log(err);
     })
