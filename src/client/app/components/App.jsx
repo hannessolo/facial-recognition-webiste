@@ -36,15 +36,15 @@ export default class App extends Component {
 
   render() {
     return this.state.loading ? <p>Loading...</p> : (
-        <div>
-          <nav>
-            <NavLink exact={true} to='/'>Home</NavLink>
+        <div >
+          <div className='nav-bar'>
+            <NavLink className='nav-item' exact={true} to='/'>Home</NavLink>
             {
               this.state.sidebar.map((route, index) => (
-                <NavLink key={index} to={route} >{route}</NavLink>
+                <NavLink className='nav-item' key={index} to={route} >{route}</NavLink>
               ))
             }
-          </nav>
+          </div>
           <div>
             <Route exact path='/' component={Welcome} />
             <Route path='/:page' render={({match})=><Content page={match.params.page}/>} />

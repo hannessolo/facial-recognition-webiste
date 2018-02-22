@@ -42,11 +42,15 @@ export default class Content extends Component {
   }
 
   render() {
-    return this.state.loading ? <p>Loading...</p> : (
-        <div>
-          <h1>{this.props.page}</h1>
-          <div dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+    return this.state.loading ?
+        <div className='content-container'><p>Loading...</p></div> : (
+        <div className='content-container'>
+          <div className='content'>
+            <h1>{this.props.page}</h1>
+            <div dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+          </div>
         </div>
+
     )
   }
 
