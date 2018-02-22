@@ -5,16 +5,50 @@ import Welcome from './Welcome.jsx';
 
 export default class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: true,
+      sidebar: []
+    };
+
+    this.SIDEBAR_URL = 'http://localhost:3000/api/pages-available';
+
+  }
+
+  componentDidMount() {
+    this._loadSidebarContent();
+  }
+
+  _loadSidebarContent() {
+    fetch(this.SIDEBAR_URL).then((res) => {
+      return res.json();
+    }).then((res) => {
+      this.setState({
+        loading: false,
+        sidebar: res.sidebar
+      });
+      console.log(res.sidebar);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+
   render() {
-    return (
+    return this.state.loading ? <p>Loading...</p> : (
         <div>
           <nav>
             <NavLink exact={true} to='/'>Home</NavLink>
-            <NavLink to='/introduction'>Introduction</NavLink>
+            {
+              this.state.sidebar.map((route, index) => (
+                <NavLink key={index} to={route} >{route}</NavLink>
+              ))
+            }
           </nav>
           <div>
             <Route exact path='/' component={Welcome} />
-            <Route path='/introduction' render={()=><Content page='introduction'/>} />
+            <Route path='/:page' render={({match})=><Content page={match.params.page}/>} />
           </div>
         </div>
     )

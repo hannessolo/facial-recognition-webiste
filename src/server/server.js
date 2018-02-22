@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const content = require('./content/dummy.json');
 const path = require('path');
 
 app.use(function(req, res, next) {
@@ -19,14 +18,18 @@ app.use(function(req, res, next) {
   }
 });
 
-app.use(express.static(path.join(__dirname, '../client/public')));
+app.use('/public', express.static(path.join(__dirname, '../client/public')));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
+app.get('/api/pages-available', (req, res) => {
+  res.sendFile(path.join(__dirname, 'content', 'available-pages.json'));
 });
 
 app.get('/api/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, 'content', req.params.id + '.json'));
+  res.sendFile(path.join(__dirname, 'content', 'html', req.params.id + '.html'));
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
 app.listen(3000);
