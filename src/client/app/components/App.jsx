@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import Content from './Content.jsx';
 import Welcome from './Welcome.jsx';
+import Parameters from './Parameters.js';
 
 export default class App extends Component {
 
@@ -14,7 +15,7 @@ export default class App extends Component {
       menu: false
     };
 
-    this.SIDEBAR_URL = 'http://localhost:3000/api/pages-available';
+    this.SIDEBAR_URL = Parameters.BASE_URL + '/api/pages-available';
     this._toggleMenu = this._toggleMenu.bind(this);
 
   }

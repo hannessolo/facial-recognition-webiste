@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Parameters from './Parameters.js';
 
 export default class Content extends Component {
 
@@ -11,7 +12,7 @@ export default class Content extends Component {
       notFound: false,
     };
 
-    this.CONTENT_URL = 'http://localhost:3000/api/' + props.page.toLowerCase();
+    this.CONTENT_URL = Parameters.BASE_URL + '/api/' + props.page.toLowerCase();
 
   }
 
@@ -25,7 +26,7 @@ export default class Content extends Component {
         loading: true,
         notFound: false
       });
-      this.CONTENT_URL = 'http://localhost:3000/api/' + this.props.page.toLowerCase();
+      this.CONTENT_URL = Parameters.BASE_URL + '/api/' + this.props.page.toLowerCase();
       this._getContent();
     }
   }
