@@ -29,6 +29,11 @@ export default class Content extends Component {
       this.CONTENT_URL = Parameters.BASE_URL + '/api/' + this.props.page.toLowerCase();
       this._getContent();
     }
+    this._reloadMathScript();
+  }
+
+  _reloadMathScript() {
+    window.updateMath();
   }
 
   _getContent() {
@@ -58,7 +63,7 @@ export default class Content extends Component {
           <div className='content-container'>
             <div className='content'>
               <h1>404</h1>
-              <div>The page {this.props.page} does not exist.</div>
+              <div>{this.props.page} does not exist.</div>
             </div>
           </div>
       )
@@ -66,7 +71,7 @@ export default class Content extends Component {
     return this.state.loading ?
         <div className='content-container'><p>Loading...</p></div> : (
         <div className='content-container'>
-          <div className='content'>
+          <div id='content' className='content'>
             <h1>{this.props.page}</h1>
             <div dangerouslySetInnerHTML={{__html: this.state.content}}></div>
           </div>

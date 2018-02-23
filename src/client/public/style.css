@@ -7,6 +7,10 @@ body, html {
 .content {
     width: 100%;
     max-width: 680px;
+    border-top: solid 2px #22ff94;
+    min-height: 100vh;
+    position: relative;
+    z-index: 50;
 }
 
 .content-container {
@@ -71,7 +75,9 @@ h4 {
 }
 
 .nav-item:hover {
-    background-color: #8effb9;
+    background-color: #22ff94;
+    border-radius: 5px;
+    transform: translate(0, -2px);
 }
 
 .nav-item {
@@ -128,6 +134,7 @@ h4 {
     -moz-box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.36);
     box-shadow: 0px 3px 7px 1px rgba(0,0,0,0.36);
     animation: opacity 300ms;
+    z-index: 100;
 }
 
 .hamburger {
@@ -136,9 +143,47 @@ h4 {
     padding: 20px;
     align-self: center;
     margin-top: 15px;
+    cursor: pointer;
+}
+
+.welcome-button {
+    font-size: 22pt;
+    text-decoration: none;
+    color: black;
+    border-radius: 50px;
+    padding: 15px;
+    border: solid 2px black;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    position: relative;
+    top: 40px;
+}
+
+.welcome-button:hover {
+    background-color: #22ff94;
+}
+
+.welcome-button > span:hover{
+    transform: translate(0, 2px);
 }
 
 .material-icons.md-48 { font-size: 48px; }
+
+p > a {
+    text-decoration: none;
+    background-color: #22ff94;
+    color: black;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+@media (min-width: 1230px) {
+    .top-line {
+        position: fixed;
+        border-top: solid 2px #22ff94;
+        width: 100%;
+    }
+}
 
 @media (max-width: 1430px) and (min-width: 1230px) {
     .content-container {
@@ -165,6 +210,7 @@ h4 {
     .top-bar {
         display: flex;
         opacity: 1;
+        border-top: solid 2px #22ff94;
     }
 
     .content-container {
