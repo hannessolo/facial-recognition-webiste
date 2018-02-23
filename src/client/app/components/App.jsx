@@ -10,10 +10,12 @@ export default class App extends Component {
 
     this.state = {
       loading: true,
-      sidebar: []
+      sidebar: [],
+      menu: false
     };
 
     this.SIDEBAR_URL = 'http://localhost:3000/api/pages-available';
+    this._toggleMenu = this._toggleMenu.bind(this);
 
   }
 
@@ -34,10 +36,19 @@ export default class App extends Component {
     })
   }
 
+  _toggleMenu() {
+    this.setState(prev => ({
+      menu: !prev.menu
+    }))
+  }
+
   render() {
     return this.state.loading ? <p>Loading...</p> : (
         <div >
-          <div className='nav-bar'>
+          <div className="top-bar">
+            <span className="hamburger" onClick={this._toggleMenu}><i className="material-icons md-48">menu</i></span>
+          </div>
+          <div className={'nav-bar ' + (this.state.menu ? "show" : "hide translate-menu")}>
             <NavLink className='nav-item' exact={true} to='/'>Home</NavLink>
             {
               this.state.sidebar.map((route, index) => (
@@ -45,7 +56,7 @@ export default class App extends Component {
               ))
             }
           </div>
-          <div>
+          <div className={"body " + (this.state.menu ? "translate-content" : "")}>
             <Route exact path='/' component={Welcome} />
             <Route path='/:page' render={({match})=><Content page={match.params.page}/>} />
           </div>
