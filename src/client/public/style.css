@@ -177,6 +177,10 @@ p > a {
     padding: 6px;
 }
 
+.link-active {
+    border-left: 10px solid #22ff94;
+}
+
 @media (min-width: 1230px) {
     .top-line {
         position: fixed;
@@ -202,6 +206,19 @@ p > a {
 }
 
 @media (max-width: 1230px) {
+
+    h1 {
+        font-size: 60pt;
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        font-size: 30pt;
+    }
+
+    h4 {
+        font-size: 22pt;
+    }
 
     .nav-bar {
         transition: 300ms ease-in-out;
@@ -234,7 +251,7 @@ p > a {
     }
 
     .translate-content {
-        transform: translate(260px);
+        transform: translate(300px);
     }
 
     .translate-menu {

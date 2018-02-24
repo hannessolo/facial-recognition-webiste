@@ -46,17 +46,19 @@ export default class App extends Component {
   render() {
     return this.state.loading ? <p>Loading...</p> : (
         <div>
-          <span className={"top-line"}></span>
+          <span className={'top-line'}></span>
           <div className="top-bar">
             <span className="hamburger" onClick={this._toggleMenu}><i
                 className="material-icons md-48">menu</i></span>
           </div>
           <div className={'nav-bar ' +
           (this.state.menu ? 'show' : 'hide translate-menu')}>
-            <NavLink className='nav-item' exact={true} to='/'>Home</NavLink>
+            <NavLink className='nav-item'
+                     exact={true} to='/'>Home</NavLink>
             {
               this.state.sidebar.map((route, index) => (
-                  <NavLink className='nav-item' key={index}
+                  <NavLink className='nav-item'
+                           key={index}
                            to={route}>{route}</NavLink>
               ))
             }
