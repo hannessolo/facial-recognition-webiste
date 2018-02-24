@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+var https = require('https');
+var fs = require('fs');
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -32,4 +34,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-app.listen(3000);
+const options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/facialrecognition.ml/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/facialrecognition.ml/cert.pem'),
+  ca: fs.readFileSync('/etc/letsencrypt/live/facialrecognition.ml/chain.pem'),
+};
+
+https.createServer(options, app).listen(443);
