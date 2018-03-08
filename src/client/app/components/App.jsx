@@ -3,7 +3,7 @@ import {Route, NavLink} from 'react-router-dom';
 import Content from './Content.jsx';
 import Welcome from './Welcome.jsx';
 import Parameters from './Parameters.js';
-import NavSubMenu from './NavSubMenu.jsx';
+import CollapsableMenuItem from './CollapsableMenuItem.jsx';
 
 export default class App extends Component {
 
@@ -60,14 +60,7 @@ export default class App extends Component {
             </div>
             {
               this.state.sidebar.map((route, index) => (
-                <div key={index} className='nav-item-container'>
-                  <NavLink className='nav-item'
-                           to={route.name}>
-                           {route.name}
-                  </NavLink>
-                  {route.children.length == 0 ? "" :
-                    <NavSubMenu routes={route.children} />}
-                </div>
+                <CollapsableMenuItem key={index} route={route} />
               ))
             }
           </div>

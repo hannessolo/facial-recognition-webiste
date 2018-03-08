@@ -89,6 +89,7 @@ h4 {
 .nav-item-container {
   display: flex;
   flex-direction: column;
+  transition: 2s ease-in-out;
 }
 
 .nav-item:hover {
@@ -114,6 +115,11 @@ h4 {
     border-radius: 100%;
     transform: scale(1, 1) translate(-50%);
     transform-origin: 50% 50%;
+}
+
+.submenu-highlight {
+  border-right: 4px #22ff94 solid;
+  padding-right: 16px;
 }
 
 @keyframes ripple {
@@ -275,4 +281,8 @@ p > a {
         transform: translate(-300px);
         transition: 300ms ease-in-out;
     }
+}
+
+.nav-sub-hide {
+  display: none;
 }
