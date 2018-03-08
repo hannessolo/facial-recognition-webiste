@@ -19,6 +19,13 @@ body, html {
     justify-content: center;
 }
 
+li {
+  font-size: 12.5pt;
+  line-height: 2;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
 p {
     font-size: 12.5pt;
     line-height: 2;
@@ -179,13 +186,6 @@ p > a {
 
 .link-active {
     border-left: 10px solid #22ff94;
-}
-
-li {
-  font-size: 12.5pt;
-  line-height: 2;
-  text-align: left;
-  margin-bottom: 20px;
 }
 
 @media (min-width: 1230px) {
