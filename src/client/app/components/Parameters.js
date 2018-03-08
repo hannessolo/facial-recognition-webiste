@@ -1,3 +1,3 @@
 export default {
-  BASE_URL: "https://facialrecognition.ml"
+  BASE_URL: "http://localhost:8080"
 }
