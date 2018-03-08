@@ -81,6 +81,16 @@ h4 {
     padding: 20px 20px 20px 60px;
 }
 
+.sub-item {
+  padding-left: 80px;
+  font-size: 13pt;
+}
+
+.nav-item-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .nav-item:hover {
     background-color: #22ff94;
     border-radius: 5px;

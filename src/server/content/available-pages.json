@@ -1,10 +1,31 @@
 {
   "sidebar": [
-    "Introduction",
-    "History",
-    "Challenges",
-    "Moral Issues",
-    "PCA",
-    "CNNs"
+    {
+      "name": "Introduction",
+      "children": []
+    },
+    {
+      "name": "History",
+      "children": []
+    },
+    {
+      "name": "Challenges",
+      "children": [
+        "2Dvs3D",
+        "Lighting"
+      ]
+    },
+    {
+      "name": "Moral Issues",
+      "children": []
+    },
+    {
+      "name": "Implementations",
+      "children": [
+        "PCA",
+        "CNNs",
+        "Feature extraction"
+      ]
+    }
   ]
 }
