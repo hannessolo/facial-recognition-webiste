@@ -11,19 +11,19 @@
 </ul>
 <p>If we look more closely at the details of what an eigenface is and how they are computed and used, we find that eigenface is in fact a synonym for eigenvector, when applied to computer vision problems like face recognition. Below we describe the mathematical process of how eigenfaces can be created and used for the task of facial recognition, however the principles and techniques can equally be applied to other tasks like handwriting, voice and gesture recognition.</p>
 <ul>
-  <li>The first step in generating a set of eigenfaces is to prepare the set of training images. All the images should be taken under the same lighting conditions and be normalised so that key facial features like the mouth and eyes are aligned. The images must also be resized to a common resolution. We then treat each image as a single vector by concatenating the rows of pixels together to form a single column vector. For example, if we have an image of size `r \times c` pixels, then the image rows would be concatenated together to give a single column vector with `r \times c` elements. Finally after computing the column vectors for all the images, we store them in a single matrix $\+T$ where each column of the matrix is an image of the training set.</li>
+  <li>The first step in generating a set of eigenfaces is to prepare the set of training images. All the images should be taken under the same lighting conditions and be normalised so that key facial features like the mouth and eyes are aligned. The images must also be resized to a common resolution. We then treat each image as a single vector by concatenating the rows of pixels together to form a single column vector. For example, if we have an image of size `r \times c` pixels, then the image rows would be concatenated together to give a single column vector with `r \times c` elements. Finally after computing the column vectors for all the images, we store them in a single matrix `T` where each column of the matrix is an image of the training set.</li>
   <li>Next we must compute the average image. This is trivial because the images are stored as column vectors, so we can just calculate the mean of each component and then store the column vector consisting of these average elements. Once we have the mean average image, we must subtract this image from each original image (column) of the matrix `T`.</li>
-  <li>Next we must compute the eigenvectors and corresponding eigenvalues of the covariance matrix `S`. The matrix `S` is defined as `S = TT^{T}`. The problem we now face is that computing the eigenvectors of the matrix `S` is infeasible due to its size. For example if our training set images were `100 \times 100` pixels, each column vector would consist of `10000` elements, and therefore `S` would be a `10000 \times 10000` matrix. However, there are ways to compute the eigenvalues of `S` without needing to to compute `S` itself, as we will now explain.</li>
+  <li>Next we must compute the eigenvectors and corresponding eigenvalues of the covariance matrix `S`. The matrix `S` is defined as `S = T^{T}`. The problem we now face is that computing the eigenvectors of the matrix `S` is infeasible due to its size. For example if our training set images were `100 \times 100` pixels, each column vector would consist of `10000` elements, and therefore `S` would be a `10000 \times 10000` matrix. However, there are ways to compute the eigenvalues of `S` without needing to to compute `S` itself, as we will now explain.</li>
 </ul>
-<p class="equation">`Sv_{i} = TT^{T}v_{i} = \lambda_{i}u_{i}`</p>
+<p class="equation">`Sv_{i} = T^{T}v_{i} = \lambda_{i}u_{i}`</p>
 <p>`S` is too large to compute, however if we instead take the following eigenvalue decomposition:</p>
 <p class="equation">`T^{T}Tu_{i} = \lambda_{i}u_{i}`<p>
-<p>Then this is more reasonable to compute as `T^{T}T` is a smaller matrix than `TT^{T}`</p>
+<p>Then this is more reasonable to compute as `T^{T}T` is a smaller matrix than `T^{T}`</p>
 <p>Now if we pre-multiply both sides by `T`:</p>
-<p>This means that if `u_{i}` is an eigenvector of `T^{T}`T`, then `v_{i} = Tu_{i}` is an eigenvector of `S`. This gives us a much more efficient way of computing the eigenvectors of `S`.</p>
+<p>This means that if `u_{i}` is an eigenvector of `T^{T}T`, then `v_{i} = Tu_{i}` is an eigenvector of `S`. This gives us a much more efficient way of computing the eigenvectors of `S`.</p>
 <ul>
   <li>The eigenvectors of `S` have the same dimensions as the original images in the training set, and so they can also be referred to as images. This is where the term eigenface comes from: the eigenvectors of the covariance matrix `S` are the eigenfaces of the training set. </li>
-  <li>Lastly, we need to choose the principal components. We do this by sorting the eigenvalues in descending order and choosing the eigenvectors that correspond to the largest $k$ eigenvalues. $k$ can be arbitrarily set, or it can be determined more accurately by setting a threshold $\epsilon$ on the total variance of the data set.</li>
+  <li>Lastly, we need to choose the principal components. We do this by sorting the eigenvalues in descending order and choosing the eigenvectors that correspond to the largest `k` eigenvalues. `k` can be arbitrarily set, or it can be determined more accurately by setting a threshold `\epsilon` on the total variance of the data set.</li>
 </ul>
 <p>We now have our eigenfaces for this training set of face images, which can be used to represent existing faces and new faces.  We chose the eigenvectors with the largest `k` corresponding eigenvalues, because the eigenvalues tell us how much the image varies from the mean image in the direction of the eigenvector. Therefore as we described in the previous section, by choosing the eigenvectors with the largest eigenvalues we minimise the amount of information lost.</p>
 <h4>Using the Eigenfaces for Facial Recognition</h4>
@@ -31,16 +31,16 @@
 <ul>
   <li>The system is given an input image. This image is transformed into a column vector as described previously. Then, given an input image vector `U \in \R^{n}`, and the mean image vector `M`, calculate the weight of each eigenface:</li>
 </ul>
-<p class="equation">`w_k = V^{T}_{k}(U-M)`</p>
-<p>Repeat for each eigenface and form the weight vector `W` = [w_1, w_2, w_3,..., w_k]`.</p>
+<p class="equation">`w_k = V_k^T(U-M)`</p>
+<p>Repeat for each eigenface and form the weight vector `W` = `[w_1, w_2, w_3,..., w_k]`.</p>
 <ul>
   <li>We then compare the vector `W` with the weight vectors `W_{m}` of the images already in the database. We could calculate any distance between them however we normally compute the Euclidean distance:</li>
 </ul>
 <p class="equation">`d = ||W - W_{m}||^2`</p>
 <ul>
-  <li>We then need to use the value of $d$ to come to a conclusion about the face image. If `d < \epsilon_{1}` for some preset value of `\epsilon_{1}`, then we conclude that the image that corresponds to the `W_{m}` used to calculate `d` is a candidate face: i.e. the mth image in the database is probably a match for the face image $U$ being analysed.</li>
+  <li>We then need to use the value of `d` to come to a conclusion about the face image. If `d < \epsilon_{1}` for some preset value of `\epsilon_{1}`, then we conclude that the image that corresponds to the `W_{m}` used to calculate `d` is a candidate face: i.e. the mth image in the database is probably a match for the face image $U$ being analysed.</li>
   <li>If `\epsilon_{1} < d < \epsilon_{2}` for some other preset value of `\epsilon_{2}`, then the image `U` is probably an unknown face that hasn't been seen before and so can be added to the database.</li>
-  <li>\item If `d > \epsilon_{2}`, then $U$ is not a face image at all. </li>
+  <li>If `d > \epsilon_{2}`, then `U` is not a face image at all. </li>
 </ul>
 <h4>Review</h4>
 <p>Eigenfaces and principal component analysis are an easy and cheap method for facial recognition for many reasons. The training process is automatic and easy to implement in code, and by reducing the dimensionality of the face images it reduces statistical complexity. Another benefit is that once the eigenfaces of a databases are calculated the recognition process is fast and can be performed in real time. Despite all this, there are some notable but obvious areas of weakness of PCA. The method is very sensitive to lighting and scale: if the image being analysed is in different lighting conditions or the face is not lined up with the images in the database then accuracy is hugely reduced. For this reason, systems using PCA usually require a highly controlled environment, and often require user cooperation as well which limits the methods applications for textbook face recognition tasks like surveillance and watchlist monitoring.</p>
