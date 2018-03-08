@@ -16,8 +16,8 @@
   <li>Next we must compute the eigenvectors and corresponding eigenvalues of the covariance matrix `S`. The matrix `S` is defined as `S = TT^{T}`. The problem we now face is that computing the eigenvectors of the matrix `S` is infeasible due to its size. For example if our training set images were `100 \times 100` pixels, each column vector would consist of `10000` elements, and therefore `S` would be a `10000 \times 10000` matrix. However, there are ways to compute the eigenvalues of `S` without needing to to compute `S` itself, as we will now explain.</li>
 </ul>
 <p class="equation">`Sv_{i} = TT^{T}v_{i} = \lambda_{i}u_{i}`</p>
-<p>`S` is too large to compute, however if we instead take the following eigenvalue decomposition:</p>  
-<p class="equation">T^{T}Tu_{i} = \lambda_{i}u_{i}
+<p>`S` is too large to compute, however if we instead take the following eigenvalue decomposition:</p>
+<p class="equation">`T^{T}Tu_{i} = \lambda_{i}u_{i}`<p>
 <p>Then this is more reasonable to compute as `T^{T}T` is a smaller matrix than `TT^{T}`</p>
 <p>Now if we pre-multiply both sides by `T`:</p>
 <p>This means that if `u_{i}` is an eigenvector of `T^{T}`T`, then `v_{i} = Tu_{i}` is an eigenvector of `S`. This gives us a much more efficient way of computing the eigenvectors of `S`.</p>
