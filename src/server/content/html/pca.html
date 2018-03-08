@@ -31,8 +31,8 @@
 <ul>
   <li>The system is given an input image. This image is transformed into a column vector as described previously. Then, given an input image vector `U \in \R^{n}`, and the mean image vector `M`, calculate the weight of each eigenface:</li>
 </ul>
-<p class="equation">`w_k = V^{T}_{k}(U-M)`</p>
-<p>Repeat for each eigenface and form the weight vector `W` = [w_1, w_2, w_3,..., w_k]`.</p>
+<p class="equation">`w_k = V_k^T(U-M)`</p>
+<p>Repeat for each eigenface and form the weight vector `W = [w_1, w_2, w_3,..., w_k]`.</p>
 <ul>
   <li>We then compare the vector `W` with the weight vectors `W_{m}` of the images already in the database. We could calculate any distance between them however we normally compute the Euclidean distance:</li>
 </ul>
