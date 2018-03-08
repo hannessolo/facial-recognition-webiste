@@ -1,0 +1,69 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly loadAllDepsIntoIdealTree Finishing
+20 silly idealTree:prePrune facial-recognition-webiste
+21 silly loadIdealTree Finishing
+22 silly currentTree facial-recognition-webiste
+23 silly idealTree facial-recognition-webiste
+24 silly generateActionsToTake Starting
+25 silly install generateActionsToTake
+26 silly generateActionsToTake Finishing
+27 silly diffTrees action count 0
+28 silly decomposeActions action count 0
+29 silly executeActions Starting
+30 silly install executeActions
+31 silly doSerial global-install 0
+32 silly doParallel fetch 0
+33 warn locking Error: Unknown system error -122: Unknown system error -122, open '/homes/hh4017/.npm/_locks/staging-9d4e9433b88c6e2a.lock.STALE'
+33 warn locking     at Error (native)
+33 warn locking  /homes/hh4017/.npm/_locks/staging-9d4e9433b88c6e2a.lock failed { [Error: Unknown system error -122: Unknown system error -122, open '/homes/hh4017/.npm/_locks/staging-9d4e9433b88c6e2a.lock.STALE']
+33 warn locking   errno: -122,
+33 warn locking   code: 'Unknown system error -122',
+33 warn locking   syscall: 'open',
+33 warn locking   path: '/homes/hh4017/.npm/_locks/staging-9d4e9433b88c6e2a.lock.STALE' }
+34 silly rollbackFailedOptional Starting
+35 silly rollbackFailedOptional Finishing
+36 silly runTopLevelLifecycles Starting
+37 silly runTopLevelLifecycles Finishing
+38 silly install printInstalled
+39 warn Failed to parse json
+39 warn Trailing comma in object at 16:3
+39 warn   },
+39 warn   ^
+40 warn File: /homes/hh4017/Documents/topics/facial-recognition-webiste/package.json
+41 warn facial-recognition-webiste No description
+42 warn facial-recognition-webiste No repository field.
+43 warn facial-recognition-webiste No README data
+44 warn facial-recognition-webiste No license field.
+45 verbose stack Error: Unknown system error -122: Unknown system error -122, open '/homes/hh4017/.npm/_locks/staging-9d4e9433b88c6e2a.lock.STALE'
+45 verbose stack     at Error (native)
+46 verbose cwd /homes/hh4017/Documents/topics/facial-recognition-webiste/src/server
+47 error Linux 4.4.0-116-generic
+48 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install"
+49 error node v4.2.6
+50 error npm  v3.5.2
+51 error path /homes/hh4017/.npm/_locks/staging-9d4e9433b88c6e2a.lock.STALE
+52 error code Unknown system error -122
+53 error errno -122
+54 error syscall open
+55 error Unknown system error -122: Unknown system error -122, open '/homes/hh4017/.npm/_locks/staging-9d4e9433b88c6e2a.lock.STALE'
+56 error If you need help, you may report this error at:
+56 error     <https://github.com/npm/npm/issues>
+57 verbose exit [ -122, true ]
