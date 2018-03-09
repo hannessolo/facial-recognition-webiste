@@ -33,7 +33,7 @@ p {
     margin-bottom: 50px;
 }
 
-h4 + p::first-letter {
+h4 + p::first-letter :not(.reference) {
     font-size: 200%;
     vertical-align: middle;
     line-height: 50%;
@@ -202,6 +202,15 @@ p > a {
 
 .link-active {
     border-left: 10px solid #22ff94;
+}
+
+.references {
+    border-top: solid 2px rgba(0, 0, 0, 0.31);
+    margin-top: 120px;
+}
+
+.reference {
+    font-size: 11pt;
 }
 
 @media (min-width: 1230px) {
