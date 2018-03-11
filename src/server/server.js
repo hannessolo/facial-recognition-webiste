@@ -30,6 +30,10 @@ app.get('/api/:id', (req, res) => {
   res.sendFile(path.join(__dirname, 'content', 'html', req.params.id + '.html'));
 });
 
+app.get('/api/refs/:id', (req, res) => {
+  res.sendFile(path.join(__dirname, 'content', 'references', req.params.id + '.json'));
+});
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/index.html'));
 });
