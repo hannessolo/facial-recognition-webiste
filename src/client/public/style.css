@@ -300,3 +300,12 @@ p > a {
 .nav-sub-hide {
   display: none;
 }
+
+.text-image {
+  width: 100%;
+}
+
+.image-caption {
+  font-size: 11pt;
+  margin-bottom: 40px;
+}
