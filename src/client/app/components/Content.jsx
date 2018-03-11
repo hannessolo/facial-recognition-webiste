@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Parameters from './Parameters.js';
+import Reference from './Reference.jsx';
 
 export default class Content extends Component {
 
@@ -10,9 +11,11 @@ export default class Content extends Component {
       loading: true,
       content: "",
       notFound: false,
+      refs: []
     };
 
     this.CONTENT_URL = Parameters.BASE_URL + '/api/' + props.page.toLowerCase();
+    this.REFS_URL = Parameters.BASE_URL + '/api/refs/' + props.page.toLowerCase();
 
   }
 
@@ -27,6 +30,7 @@ export default class Content extends Component {
         notFound: false
       });
       this.CONTENT_URL = Parameters.BASE_URL + '/api/' + this.props.page.toLowerCase();
+      this.REFS_URL = Parameters.BASE_URL + '/api/refs/' + this.props.page.toLowerCase();
       this._getContent();
     }
     this._reloadMathScript();
@@ -45,6 +49,7 @@ export default class Content extends Component {
       }
       return res.text();
     }).then((res) => {
+      this._getRefs();
       this.setState({
         loading: false,
         content: res
@@ -53,6 +58,22 @@ export default class Content extends Component {
       this.setState({
         notFound: true
       });
+    });
+  }
+
+  _getRefs() {
+    fetch(this.REFS_URL)
+    .then((res) => {
+      return res.json();
+    }).then((res) => {
+      this.setState({
+        refs: res.refs
+      });
+      console.log(res.refs);
+    }).catch((err) => {
+      this.setState({
+        refs: []
+      })
     });
   }
 
@@ -74,6 +95,14 @@ export default class Content extends Component {
           <div id='content' className='content'>
             <h1>{this.props.page}</h1>
             <div dangerouslySetInnerHTML={{__html: this.state.content}}></div>
+            <div className='references'>
+              <h4>References</h4>
+              {
+                this.state.refs.map((ref, index) => (
+                  <Reference key={index} refer={ref} indexNo={index} />
+                ))
+              }
+            </div>
           </div>
         </div>
 

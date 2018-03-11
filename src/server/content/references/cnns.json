@@ -1,0 +1,25 @@
+{
+    "refs": [
+        {
+          "author": "Parkhi, O.M. et al",
+          "title": "Deep Face Recognition",
+          "year": "2015",
+          "page": null,
+          "url": "https://www.robots.ox.ac.uk/~vgg/publications/2015/Parkhi15/parkhi15.pdf"
+        },
+        {
+          "author": "Gorner, M.",
+          "title": "TensorFlow and Deep Learning without a PhD",
+          "year": "2017",
+          "page": "[Talk]",
+          "url": "https://www.youtube.com/watch?v=u4alGiomYP4"
+        },
+        {
+          "author": "Nielsen, M.",
+          "title": "Neural Networks and Deep Learning",
+          "year": "2017",
+          "page": null,
+          "url": "http://neuralnetworksanddeeplearning.com/"
+        }
+    ]
+}
