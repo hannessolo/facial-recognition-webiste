@@ -19,3 +19,36 @@
 <p>The answer to this problem is convolutional neural networks. CNNs change the way we have to think of neurons. Neurons now have a grid of inputs, each of the square in the grid associated with a weight. Each neuron projects this grid onto a specific location of the input. It then works exactly the same as before: It sums all its weighted inputs and puts them through an output function. However, this time we keep the 2 dimensional structure of the image intact in both the previous and current layer. This means that this method of convolution can be applied in multiple layers. Notice that not now not every neuron is connected to every neuron of the next layer. Often, it is also applied multiple times per layer. </p>
 <p>For the output layer, we often use what is called a fully connected layer: This means we use a layer as in a multilayer perceptron, where every neuron is connected to every neuron in the next layer. The number of neurons in the output layer can vary depending on the chosen representation. See the next section. </p>
 <h3>Neural Networks Applied for Facial Recognition</h3>
+<h4>Dataset Collection</h4>
+<p>
+  Neural Networks have not been applied to facial recognition until recently in part because it is hard to obtain a large enough data set. Even now, such technology is mostly restricted to large companies such as Facebook or Google, that collect these data sets by nature of their business. To train a network effectively, hundreds of thousands to millions of images of thousands of individuals are required. Some state of the art facial recognition algorithms by Google were even trained on over 200 million images.\\
+So how are data sets of this magnitude constructed? There is no way to label all of the data by hand. So we must do better.
+</p>
+<p>
+  A good place to start is some sort of database, like IMDB (Internet Movie Database), that is freely available. From this sort of database, it is often possible to get a few thousand identities from actors, who might have, on average, 3 pictures uploaded.
+</p>
+<p>
+  We then choose a sub set of this database as our candidate data set. Here, we need to make sure that our data set is as balanced as possible: Around half of the identities should be male, the other half female. We also need to make sure different ethnicities are represented proportionally. Otherwise, our network could struggle after the training phase.
+</p>
+<p>
+  As a next step, we need to find more images for each identity. This can be done for instance by using google image search and downloading the top 200 results for each name. However, among these images are bound to be images that are not usable. This can be done in part manually, in part using other facial recognition algorithms, such as Eigenfaces, to rank the images by usability. A usable image must be reasonably frontal, and not include too many other things.
+</p>
+<p>
+  In the end, we filter out any of the identities that went over a threshold of unusable images: For instance, if more than 10 percent of images was not usable, drop this identity. For the identities that remain, we also need to filter out near duplicate images, as this could lead to over fitting, a common problem of machine learning, whereby an algorithm learns too many specifics of one image and can't generalize anymore.
+</p>
+<h4>Network Architecture</h4>
+<p>
+  We will now consider a specific architecture of neural network for facial recognition proposed by Parkhi et al. in 2015.
+</p>
+<p>
+  This architecture is made up of 2 parts. In the first part, a CNN is trained as in a N-ways classification problem, meaning it can only classify any given image as one of N identities given in the training data. They use a CNN. The output layer is a fully connected layer and uses a one-hot encoding. This means the output layer is a N-dimensional vector. Given image number `n \in [0..N]`, we want the network to output a vector where all values are close to 0, except for `N_n`, which we want to be close to 1. This means each item of the vector corresponds to the certainty of the network that the input was face `n`. This first CNN is trained in a relatively straight forward way, similar to the methods described in previous sections.
+</p>
+<p>
+  The last layer of the neural network is removed - this means that the one-hot encoding and classification into `N` identities is no longer there. We make the second to last layer the new output layer. What we are left with is an abstract encoding for images. This encoding is still simply a high dimensional vector. We can now input different faces, and verify identities by comparing the euclidean distance between the output vectors - the distance should be high for different identities, and small for the same identity.
+</p>
+<p>
+  However, to further improve results, a second stage of learning, called triplet based learning, is conducted. In triplet based learning, instead of using a conventional loss function, we use sets of 3 images. One of these faces is called pivot, and is used as a frame of reference. The next image is an image of the same identity as the pivot, the third image is an image of a different identity. The goal of training is to adjust the weights in the network such that the distance between the pivot and the same identity is as small as possible, while also making the distance between the pivot and the negative face as large as possible.
+</p>
+<p>
+  Using these techniques in conjunction with each other, Parki et al. were able to achieve an accuracy of up to 99.13 percent on benchmark data sets. This is much higher than non-deep learning methods, which often only yield around 90 to 95 per cent accuracy. This would explain the rise of deep learning, and the decline of other machine learning, in the last few years: Deep learning has beat all the other methods in terms of accuracy.
+</p>
