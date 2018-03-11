@@ -207,10 +207,15 @@ p > a {
 .references {
     border-top: solid 2px rgba(0, 0, 0, 0.31);
     margin-top: 120px;
+    margin-bottom: 50px;
 }
 
 .reference {
     font-size: 11pt;
+    color: black;
+    text-decoration: none;
+    margin: 5px;
+    display: flex;
 }
 
 @media (min-width: 1230px) {

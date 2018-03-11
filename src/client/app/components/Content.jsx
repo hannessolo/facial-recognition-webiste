@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Parameters from './Parameters.js';
+import Reference from './Reference.jsx';
 
 export default class Content extends Component {
 
@@ -29,6 +30,7 @@ export default class Content extends Component {
         notFound: false
       });
       this.CONTENT_URL = Parameters.BASE_URL + '/api/' + this.props.page.toLowerCase();
+      this.REFS_URL = Parameters.BASE_URL + '/api/refs/' + this.props.page.toLowerCase();
       this._getContent();
     }
     this._reloadMathScript();
@@ -97,10 +99,7 @@ export default class Content extends Component {
               <h4>References</h4>
               {
                 this.state.refs.map((ref, index) => (
-                  <p className='reference' key={index}>
-                    [{index + 1}]{this.state.refs[index].author}, 
-                    {this.state.refs[index].title},
-                  </p>
+                  <Reference key={index} refer={ref} indexNo={index} />
                 ))
               }
             </div>
