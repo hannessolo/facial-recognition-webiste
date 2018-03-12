@@ -2,7 +2,7 @@
 <h4>What is PCA?</h4>
 <p>A popular collection of algorithms for facial recognition are known as subspace methods. All algorithms that fall into this class use the assumption that a collection of `M` face images is going to contain some redundant data. Using this assumption, if we can remove some of this redundant data then the 'important' data that we are left with is simpler to analyse. Principal component analysis (PCA), is one such subspace method which reduces the number of variables in a dataset by collecting highly correlated data together. Of course, by reducing the number of variables you lose some accuracy, however in the process you make the data much simpler to work with.</p>
 <p>In the task of human facial recognition, PCA is normally used to produce a set of eigenfaces. Intuitively, you can think of eigenfaces as a set of standard face elements, that you calculate by statistically analysing a large number of face images. Because these eigenfaces are 'standard' faces, every human face can be expressed as a combination of these different eigenfaces. As an example, a particular individuals face might be described as `55%` of the first eigenface, `20%` the second eigenface, and so on. Visually an eigenface will appear as a combination of light and dark areas that correspond to a specific pattern.</p>
-<h3>Computing Eigenfaces</h3>
+<h4>Computing Eigenfaces</h4>
 <p>Let us think about how we could compute a set of eigenfaces. We said above that an eigenface is a 'standard' face, and that given a set of these standard faces we could express any human face as a combination of these eigenfaces. Therefore to calculate these standard faces, we need to analyse a large collection of faces and see how they differ from each other.</p>
 <ul>
   <li>We look at a set of face images that we want to use to compute the eigenfaces: we call this the training set, as we are going to use this to 'train' the algorithm how to recognise unseen faces. Using this set of face images, we calculate the average face and then subtract this average face from every image.</li>
@@ -26,6 +26,10 @@
   <li>Lastly, we need to choose the principal components. We do this by sorting the eigenvalues in descending order and choosing the eigenvectors that correspond to the largest `k` eigenvalues. `k` can be arbitrarily set, or it can be determined more accurately by setting a threshold `\epsilon` on the total variance of the data set.</li>
 </ul>
 <p>We now have our eigenfaces for this training set of face images, which can be used to represent existing faces and new faces.  We chose the eigenvectors with the largest `k` corresponding eigenvalues, because the eigenvalues tell us how much the image varies from the mean image in the direction of the eigenvector. Therefore as we described in the previous section, by choosing the eigenvectors with the largest eigenvalues we minimise the amount of information lost.</p>
+<img class='text-image' src='public/img/eigenfaces.jpg'/>
+<div class='image-caption'>
+  &lt;A set of eigenfaces from AT&T labs. As the eigenfaces are of the same dimensionality as the original images, they can be reconstructed and displayed visually as face like images.&gt;
+</div>
 <h4>Using the Eigenfaces for Facial Recognition</h4>
 <p>Now we have our eigenfaces, we can start using them for facial recognition of new faces. This is done as follows. Known face images (those already seen and enrolled by the system, saved on the database) are saved as a collection of weights which describe how much each eigenface contributes to that face image.</p>
 <ul>
