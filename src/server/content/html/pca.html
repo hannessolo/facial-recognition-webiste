@@ -28,7 +28,7 @@
 <p>We now have our eigenfaces for this training set of face images, which can be used to represent existing faces and new faces.  We chose the eigenvectors with the largest `k` corresponding eigenvalues, because the eigenvalues tell us how much the image varies from the mean image in the direction of the eigenvector. Therefore as we described in the previous section, by choosing the eigenvectors with the largest eigenvalues we minimise the amount of information lost.</p>
 <img class='text-image' src='public/img/eigenfaces.jpg'/>
 <div class='image-caption'>
-  &lt;A set of eigenfaces from AT&T labs. As the eigenfaces are of the same dimensionality as the original images, they can be reconstructed and displayed visually as face like images.&gt;
+  &lt;A set of eigenfaces from AT&amp;T labs. As the eigenfaces are of the same dimensionality as the original images, they can be reconstructed and displayed visually as face like images.&gt;
 </div>
 <h4>Using the Eigenfaces for Facial Recognition</h4>
 <p>Now we have our eigenfaces, we can start using them for facial recognition of new faces. This is done as follows. Known face images (those already seen and enrolled by the system, saved on the database) are saved as a collection of weights which describe how much each eigenface contributes to that face image.</p>
