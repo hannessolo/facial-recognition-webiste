@@ -1,0 +1,53 @@
+{
+  "refs": [
+    {
+      "author": "Kutz, J.",
+      "title": "PCA for Face Recognition",
+      "year": "2016",
+      "page": "[Talk]",
+      "url": "https://www.youtube.com/watch?v=8BTv-KZ2Bh8&t=58s"
+    },
+    {
+      "author": "Paul, L.C. et al",
+      "title": "Face Recognition Using Principal Component Analysis Method",
+      "year": "2012",
+      "page": null,
+      "url": "http://ijarcet.org/wp-content/uploads/IJARCET-VOL-1-ISSUE-9-135-139.pdf"
+    },
+    {
+      "author": "Syed Navas, A.S. et al",
+      "title": "Face Recognition Using Principal Component Analysis and Neural Networks",
+      "year": "2013",
+      "page": null,
+      "url": "https://pdfs.semanticscholar.org/ab7b/3fb7856ed9c2701b2ea3da8c339bbfa5923a.pdf"
+    },
+    {
+      "author": "Satonkar Suhas, S. et al",
+      "title": "Face Recognition Using Principal Component Analysis and Linear Discriminant Analysis on Holistic Approach in Facial Images Database",
+      "year": "2012",
+      "page": null,
+      "url": "https://pdfs.semanticscholar.org/222a/53efab0013a2385c3d0a8eb814cc0c9f0387.pdf"
+    },
+    {
+      "author": "Massimo, T.",
+      "title": "Handbook of Remote Biometrics",
+      "year": "2009",
+      "page": "Chapter 5",
+      "url": null
+    },
+    {
+      "author": "Turk, M. et al",
+      "title": "Eigenfaces for Recognition",
+      "year": "1991",
+      "page": null,
+      "url": "http://www.cs.ucsb.edu/~mturk/Papers/jcn.pdf"
+    },
+    {
+      "author": "Delac, K, et al",
+      "title": "Independent Comparative Study of PCA, ICA and LDA on the FERET Data Set",
+      "year": "2006",
+      "page": null,
+      "url": "http://www.face-rec.org/algorithms/comparisons/delac_03.pdf"
+    }
+  ]
+}
