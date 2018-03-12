@@ -170,6 +170,7 @@ h4 {
 }
 
 .welcome-button {
+    display: inline-block;
     font-size: 22pt;
     text-decoration: none;
     color: black;
@@ -179,7 +180,6 @@ h4 {
     margin-bottom: 30px;
     margin-top: 20px;
     position: relative;
-    top: 40px;
 }
 
 .welcome-button:hover {

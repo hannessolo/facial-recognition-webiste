@@ -3,7 +3,8 @@ let height = 28;
 let scale = 20;
 
 function setup() {
-  createCanvas(width * scale, height * scale);
+  let canvas = createCanvas(width * scale, height * scale);
+  canvas.parent('sketchContainer');
   background(255);
 }
 
