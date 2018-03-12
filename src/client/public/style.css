@@ -310,3 +310,13 @@ p > a {
   font-size: 11pt;
   margin-bottom: 40px;
 }
+
+.image-caption > a {
+  color: black;
+  text-decoration: none;
+}
+
+.image-caption > a::before {
+  content: '\a';
+  white-space: pre;
+}
