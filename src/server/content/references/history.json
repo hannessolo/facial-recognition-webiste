@@ -1,0 +1,18 @@
+{
+    "refs": [
+        {
+          "author": "Jesse Davis West",
+          "title": "A brief history of face recognition",
+          "year": "2017",
+          "page": null,
+          "url": "https://www.facefirst.com/blog/brief-history-of-face-recognition-software/#"
+        },
+        {
+		  "author": "Massimo, T.",
+		  "title": "Handbook of Remote Biometrics",
+		  "year": "2009",
+		  "page": "Chapter 1",
+		  "url": null
+		}
+    ]
+}
