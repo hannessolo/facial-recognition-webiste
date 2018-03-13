@@ -1,0 +1,28 @@
+<h4>What are landmarks?</h4>
+<p>“Points in one form for which objectively meaningful and reproducible biological counterparts exist in all the other forms of a data set”, Fred Bookstein. Although this definition is a bit involved, it is renown as an accurate definition for facial landmarks in facial recognition. Landmarks are points or patterns in which, in aggregate, create a unique structure that can be used for facial recognition analysis. Some parts of the face are prone to generate more information than others, such as the nose and eyes compared to the forehead and cheeks. These areas are widely used as landmarks, and other facial features are determined landmarks on an implementation basis. Despite extensive studies in what landmarks could make up a complete set of landmarks, there is no universally accepted cardinal set of landmarks. Landmark based methods can be categorised into two major categories, geometric (or photometric) based recognition, and structural based recognition.</p>
+
+<h4>Geometric Based Facial Recognition</h4>
+<p>Geometric based recognition was the earlier de-facto facial recognition technique. It uses the geometric distribution of landmarks on the face to help map the features on one’s face. After that, graph correlation and statistical functions would help determine the closeness of two input images. Greyscale filters are often used to simplify the input images as colour on images are dependent on room lighting and illumination, which is variable depending on the environment and poses a problem to facial recognition. Heuristic rules such as angles, distances and the surface areas of individual landmarks are used as analysis parameters for facial recognition.</p>
+<p>An implementation of geometric based facial recognition is to extract the facial landmarks, and apply a log-polar mapping to the input image. This helps significantly reduce the amount of input data stored by the system, as a log polar mapping of an image basically emphasises the details and pixels around the focal point, and the number of pixels stored for each region progressively decreases the further away it is from the focal point [fig 1]. This implementation has been proven to have a lower worst case algorithmic complexity [`w^2` for cartesian implementations vs wR for log-polar mapping], and produces close results to traditional cartesian methods.</p>
+<img class='text-image' src='public/img/landmark_1.png'/>
+<div class='image-caption'>
+  &lt;Fig.1 Log Polar Mapping example, (a) shows the overlay of the log polar map. (b) shows the overlay on top of the example input image. (c) shows the cartesian result of the log polar mapping after the mapping. (d) shows the log polar map output.&gt;
+</div>
+
+<h4>Structure Based Facial Recognition</h4>
+<p>Structure based recognition attempts to convert an input image into a structural model. This helps eliminate problems from change in pose and illumination, as the structural models themselves are 2.5 or 3 dimensional, and can be adapted to consider viewing angles. </p>
+<p>For example, a renown structural recognition model is the elastic bunch graph matching. The elastic bunch graph matching (EBGM) firstly identifies the landmarks of an input image. This is done using a Gabor Wavelet filter, which helps isolate landmarks from a greyscale image [fig 2].</p>
+<img class='text-image' src='public/img/landmark_2.jpg'/>
+<div class='image-caption'>
+  &lt;Fig.2 Example of a Gabor Wavelet Filter over three example greyscale images. The middle represents unprocessed output. The right column represents the landmarks detected from the examples.&gt;
+</div>
+
+<p>It then takes each vertex of the landmarks and converts it into a node, and edges connecting each node which represents the distances of the nodes, or the amount of variation each node is prone to. This is to help offset the differences and the variations of landmarks such as the mouth and eyes (where the input image can vary due to expression). The nodes and edges are then interpreted as an elastic graph [fig 3], which by nature allows a certain variation in changes of pose to be recognised. This is because the evaluation function considers the relative distance of two nodes in relation to the detected pose angle, and the similarities between node values instead of attempting to match two graphs via 2D overlays.</p>
+<img class='text-image' src='public/img/landmark_3.jpg'/>
+<div class='image-caption'>
+  &lt;Fig.3 Elastic bunch graph mapping examples, where the elastic graphs are mapped over the input images.&gt;
+</div>
+
+<h4>Comparisons</h4>
+<p>There are differences between the structural and geometric models that must be taken into consideration. The main drawback of geometric based methods is that all input sources must be perfectly aligned to be analysed. Any variance or offset in the input image would distort the analysis and lead to unsatisfactory classification thresholds. This means that the images would either must be perfectly aligned. Automated alignment methods have not been successfully solved, as the metric as to how to judge perfect alignment is hard to establish. </p>
+<p>On the other hand, structural based methods do not need much alignment, and can deal with variance in pose relatively well. The drawback of structural based methods is the time taken to analyse and produce a model of any input. The complexity of converting an input geometric image to a structural model requires significant computation, which can often make it hard to be applied onto real time use. However, advancements in techniques (namely machine learning) has helped greatly mitigate this problem.</p>
