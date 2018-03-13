@@ -139,7 +139,7 @@ h4 {
 }
 
 .nav-item:focus:not(:active)::after {
-    animation: 1s ease-out;
+    animation: ripple 1s ease-out;
 }
 
 .equation {
