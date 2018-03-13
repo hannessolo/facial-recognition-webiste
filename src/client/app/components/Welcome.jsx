@@ -8,8 +8,15 @@ export default class Welcome extends Component {
         <div className='content-container'>
           <div className='content'>
             <h1>Welcome</h1>
-            <p>On this site you can learn all about how machine learning can be applied to the problem of facial recognition. You can either click on "Get Started" below to read through our content in a linear way, or select a page that interests you on the left.</p>
+            <p>On this site you can learn all about how machine learning can be applied to the problem of facial recognition. You can either click on "Get Started" below to start reading, or select a page that interests you on the left.</p>
             <Link className={'welcome-button'} to={'/Introduction'}><span>Get Started</span></Link>
+            <p>To find out more about the authors of this website, use the links below:</p>
+            <ul>
+              <li className='profile-link'><Link to={'/Yoram'}>Yoram Boccia</Link></li>
+              <li className='profile-link'><Link to={'/Justin'}>Justin Chong</Link></li>
+              <li className='profile-link'><Link to={'/Tom'}>Tom Claydon</Link></li>
+              <li className='profile-link'><Link to={'/Hannes'}>Hannes Hertach</Link></li>
+            </ul>
           </div>
         </div>
     )
