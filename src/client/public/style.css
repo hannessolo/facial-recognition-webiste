@@ -139,7 +139,7 @@ h4 {
 }
 
 .nav-item:focus:not(:active)::after {
-    animation: ripple 1s ease-out;
+    animation: 1s ease-out;
 }
 
 .equation {
@@ -319,4 +319,69 @@ p > a {
 .image-caption > a::before {
   content: '\a';
   white-space: pre;
+}
+
+.profile-link > a:hover {
+    background-color: #22ff94;
+}
+
+.profile-link {
+  list-style: none;
+}
+
+.profile-link > a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  font-size: 12.5pt;
+  text-decoration: none;
+  color: black;
+  border-radius: 50px;
+  padding: 5px;
+  border: solid 2px black;
+  position: relative;
+}
+
+
+.project {
+  background-color: #FAFAFA;
+  padding: 10px;
+  box-shadow: 8px 7px 12px -8px rgba(0,0,0,0.75);
+  transition: box-shadow 0.5s;
+  padding: 8px;
+  margin: 12px 0;
+}
+
+.project > p {
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.inlinelinks > a {
+  text-decoration: none;
+  color: black;
+}
+
+.project:hover {
+  box-shadow: 8px 7px 47px -8px rgba(0,0,0,0.75);
+}
+
+.project:last-child {
+  margin-bottom: 4px;
+}
+
+.inlinelinks > a {
+  border: 1px solid gray;
+  padding: 8px;
+  border-radius: 2px;
+  margin: 8px 0;
+  transition: 0.3s;
+}
+
+.inlinelinks > a:hover {
+  background-color: #bdc3c7;
+}
+
+.inlinelinks {
+  margin: 8px 0;
 }
