@@ -1,1 +1,10 @@
-<p>Content intro</p>
+<h4>Overview</h4>
+<p>Facial Recognition is the technology used in computers to determine the identity of a person in an image. Facial Recognition has diverse <a href='/Applications'>applications</a>, different <a href='/Implementations'>techniques</a> 
+  and its share of <a href='/Challenges'>challenges</a>.</p>
+<h4>Problem Definition</h4>
+<p>In facial recognition, we would like to determine the identity of a person from a source image or video stream. This comes in different variations:</p>
+<ul>
+  <li>One-to-one classification: This type of classification is also know as verification. We compare the image to a single, known identity and determine whether the identity matches the given image. This type of classification would be used when the identity of the input image is already known, and only needs to be verified, for instance in biometric passports or in <a href='/iPhoneXCaseStudy'>login systems</a>.</li>
+  <li>One-to-many classification: This type of classification is also known as identification. We compare the given image to a set of known identities, and determine which is the closest match. Optionally, if the input image does not cross a certain threshold, we could determine that the identity is not contained in the set of known identities. This type of classification could be used by police to find the identity of a suspect.</li>
+  <li>Many-to-many classification: In this type of classification, we locate all the faces in a given input image. Then we try to assign an identity to each face using a facial recognition algorithm in a one to many classification problem. This type of facial recognition can be used for surveillance, for instance in a CCTV stream.</li>
+</ul>
