@@ -16,7 +16,7 @@ export default class App extends Component {
       menu: false,
     };
 
-    this.SIDEBAR_URL = Parameters.BASE_URL + '/api/pages-available';
+    this.SIDEBAR_URL = Parameters.BASE_URL + '/public/available-pages.json';
     this._toggleMenu = this._toggleMenu.bind(this);
 
   }
@@ -56,7 +56,7 @@ export default class App extends Component {
           (this.state.menu ? 'show' : 'hide translate-menu')}>
             <div className='nav-item-container'>
             <NavLink className='nav-item'
-                     exact={true} to='/'>Home</NavLink>
+                     exact={true} to='/~hh4017/'>Home</NavLink>
             </div>
             {
               this.state.sidebar.map((route, index) => (
@@ -66,8 +66,8 @@ export default class App extends Component {
           </div>
           <div className={'body ' +
           (this.state.menu ? 'translate-content' : '')}>
-            <Route exact path='/' component={Welcome}/>
-            <Route path='/:page'
+            <Route exact path='/~hh4017/' component={Welcome}/>
+            <Route path='/~hh4017/:page'
                    render={({match}) => <Content page={match.params.page}/>}/>
           </div>
         </div>

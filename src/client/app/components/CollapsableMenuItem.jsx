@@ -28,7 +28,7 @@ export default class CollapsableMenuItem extends Component {
       <div className='nav-item-container' onMouseEnter={this.mouseEnter}
       onMouseLeave={this.mouseLeave}>
         <NavLink className={'nav-item ' + (this.state.collapsed ? '' : 'submenu-highlight')}
-                 to={this.props.route.name}>
+                 to={'/~hh4017/' + this.props.route.name}>
                  {this.props.route.name}
         </NavLink>
         {this.props.route.children.length == 0 ? "" :

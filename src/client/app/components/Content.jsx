@@ -14,8 +14,8 @@ export default class Content extends Component {
       refs: []
     };
 
-    this.CONTENT_URL = Parameters.BASE_URL + '/api/' + props.page.toLowerCase();
-    this.REFS_URL = Parameters.BASE_URL + '/api/refs/' + props.page.toLowerCase();
+    this.CONTENT_URL = Parameters.BASE_URL + '/public/content/html/' + this.props.page.toLowerCase() + '.html';
+    this.REFS_URL = Parameters.BASE_URL + '/public/content/references/' + this.props.page.toLowerCase() + '.json';
 
   }
 
@@ -29,8 +29,8 @@ export default class Content extends Component {
         loading: true,
         notFound: false
       });
-      this.CONTENT_URL = Parameters.BASE_URL + '/api/' + this.props.page.toLowerCase();
-      this.REFS_URL = Parameters.BASE_URL + '/api/refs/' + this.props.page.toLowerCase();
+      this.CONTENT_URL = Parameters.BASE_URL + '/public/content/html/' + this.props.page.toLowerCase() + '.html';
+      this.REFS_URL = Parameters.BASE_URL + '/public/content/references/' + this.props.page.toLowerCase() + '.json';
       this._getContent();
     }
     this._reloadMathScript();

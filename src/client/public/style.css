@@ -201,6 +201,14 @@ p > a {
     padding: 6px;
 }
 
+li > a {
+  text-decoration: none;
+  background-color: #22ff94;
+  color: black;
+  border-radius: 5px;
+  padding: 6px;
+}
+
 .link-active {
     border-left: 10px solid #22ff94;
 }
