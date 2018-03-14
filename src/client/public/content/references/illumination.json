@@ -1,0 +1,32 @@
+{
+  "refs": [
+    {
+      "author": "Adini Y, Moses Y, and Ullman S",
+      "title": "Face Recognition: The Problem of Compensating for Changes in Illumination",
+      "year": "1997",
+      "page": "721 - 727",
+      "url": "http://ieeexplore.ieee.org/document/1327215/?reload=true"
+    },
+    {
+      "author": "A. O’Toole, and M. Tistarelli",
+      "title": "Handbook of Remote Biometrics",
+      "year": "2009",
+      "page": "131 - 133",
+      "url": "https://link.springer.com/book/10.1007%2F978-1-84882-385-3"
+    },
+    {
+      "author": "Laiyun Qing, Shiguang Shan, and Xilin Chen",
+      "title": "Face relighting for face recognition under generic illumination",
+      "year": "2004",
+      "page": "733 - 736",
+      "url": "http://ieeexplore.ieee.org/document/1327215/?reload=true"
+    },
+    {
+      "author": "R. Gross and V. Brajovic",
+      "title": "An image preprocessing algorithm for illumination invariant face recognition",
+      "year": "2003",
+      "page": "10 - 18",
+      "url": "https://link.springer.com/book/10.1007%2F3-540-55092-5"
+    }
+  ]
+}

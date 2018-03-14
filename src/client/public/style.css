@@ -393,3 +393,9 @@ li > a {
 .inlinelinks {
   margin: 8px 0;
 }
+
+.profile-link > a {
+  background-color: white;
+  width: 155px;
+  text-align: center;
+}

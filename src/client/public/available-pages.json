@@ -1,0 +1,37 @@
+{
+  "sidebar": [
+    {
+      "name": "Introduction",
+      "children": []
+    },
+    {
+      "name": "Applications",
+      "children": []
+    },
+    {
+      "name": "History",
+      "children": []
+    },
+    {
+      "name": "Challenges",
+      "children": [
+        "2Dvs3D",
+        "Illumination",
+        "Distance",
+        "iPhoneXCaseStudy"
+      ]
+    },
+    {
+      "name": "Moral Issues",
+      "children": []
+    },
+    {
+      "name": "Techniques",
+      "children": [
+        "PCA",
+        "CNNs",
+        "Landmark Recognition"
+      ]
+    }
+  ]
+}
